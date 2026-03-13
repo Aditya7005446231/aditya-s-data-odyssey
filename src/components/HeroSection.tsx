@@ -4,21 +4,22 @@ import { ArrowDown, FileDown, Github, Linkedin, Mail } from "lucide-react";
 const HeroSection = () => {
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
-      {/* Subtle grid background */}
+      {/* Grid background */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,hsl(var(--border)/0.3)_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--border)/0.3)_1px,transparent_1px)] bg-[size:4rem_4rem]" />
       
-      {/* Floating gradient orbs */}
+      {/* Colorful floating orbs */}
       <div className="absolute top-20 right-20 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-float" />
-      <div className="absolute bottom-20 left-20 w-96 h-96 bg-secondary/8 rounded-full blur-3xl animate-float" style={{ animationDelay: "3s" }} />
+      <div className="absolute bottom-32 left-16 w-96 h-96 bg-secondary/8 rounded-full blur-3xl animate-float" style={{ animationDelay: "3s" }} />
+      <div className="absolute top-1/2 left-1/3 w-64 h-64 bg-emerald/5 rounded-full blur-3xl animate-float" style={{ animationDelay: "1.5s" }} />
 
       <div className="section-container relative z-10 text-center">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          transition={{ duration: 0.8 }}
         >
           <span className="pill-tag-accent mb-6 inline-block">
-            Data Science & Full-Stack Development
+            ✦ Data Science & Full-Stack Development
           </span>
         </motion.div>
 
@@ -39,8 +40,10 @@ const HeroSection = () => {
           className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed"
         >
           I transform raw data into actionable intelligence and build scalable 
-          full-stack systems that solve real-world problems. Passionate about 
-          Generative AI, RAG pipelines, and enterprise-grade solutions.
+          full-stack systems. Passionate about{" "}
+          <span className="text-secondary font-medium">Generative AI</span>,{" "}
+          <span className="text-primary font-medium">RAG pipelines</span>, and 
+          enterprise-grade solutions.
         </motion.p>
 
         <motion.div
@@ -51,7 +54,7 @@ const HeroSection = () => {
         >
           <a
             href="#contact"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-foreground text-background font-medium hover:scale-105 transition-transform duration-200"
+            className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-foreground text-background font-medium hover:scale-105 transition-transform duration-200 shadow-lg"
           >
             <Mail className="w-4 h-4" />
             Get in Touch
@@ -59,7 +62,7 @@ const HeroSection = () => {
           <a
             href="/resume.pdf"
             download
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-border bg-card text-foreground font-medium hover:border-primary/50 hover:scale-105 transition-all duration-200"
+            className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full border-2 border-border bg-card text-foreground font-medium hover:border-primary/50 hover:scale-105 transition-all duration-200"
           >
             <FileDown className="w-4 h-4" />
             Download Resume
@@ -70,17 +73,17 @@ const HeroSection = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="flex items-center justify-center gap-6"
+          className="flex items-center justify-center gap-5"
         >
-          <a href="https://github.com/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors">
-            <Github className="w-5 h-5" />
-          </a>
-          <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors">
-            <Linkedin className="w-5 h-5" />
-          </a>
-          <a href="mailto:your@email.com" className="text-muted-foreground hover:text-foreground transition-colors">
-            <Mail className="w-5 h-5" />
-          </a>
+          {[
+            { icon: Github, href: "https://github.com/", label: "GitHub" },
+            { icon: Linkedin, href: "https://linkedin.com/", label: "LinkedIn" },
+            { icon: Mail, href: "mailto:your@email.com", label: "Email" },
+          ].map(({ icon: Icon, href, label }) => (
+            <a key={label} href={href} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-muted flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-primary/10 hover:text-primary transition-all duration-200">
+              <Icon className="w-4 h-4" />
+            </a>
+          ))}
         </motion.div>
 
         <motion.div
