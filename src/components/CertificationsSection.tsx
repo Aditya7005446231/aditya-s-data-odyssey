@@ -1,13 +1,20 @@
 import { motion } from "framer-motion";
-import { Award, BookOpen } from "lucide-react";
+import { Award } from "lucide-react";
 
 const certifications = [
-  { title: "Master Generative AI & Generative AI Tools (ChatGPT & more)", provider: "Udemy" },
-  { title: "Build Generative AI Apps and Solutions with No-Code Tools", provider: "Udemy" },
-  { title: "ChatGPT-4 Prompt Engineering: ChatGPT, Generative AI & LLM", provider: "Infosys" },
-  { title: "Introduction to IoT", provider: "NPTEL" },
-  { title: "Advance Data Structure", provider: "LPU" },
+  { title: "Master Generative AI & Generative AI Tools (ChatGPT & more)", provider: "Udemy", color: "secondary" as const },
+  { title: "Build Generative AI Apps and Solutions with No-Code Tools", provider: "Udemy", color: "primary" as const },
+  { title: "ChatGPT-4 Prompt Engineering: ChatGPT, Generative AI & LLM", provider: "Infosys", color: "emerald" as const },
+  { title: "Introduction to IoT", provider: "NPTEL", color: "amber" as const },
+  { title: "Advance Data Structure", provider: "LPU", color: "primary" as const },
 ];
+
+const colorStyles = {
+  primary: { bg: "bg-primary/10", text: "text-primary", stripe: "bg-primary" },
+  secondary: { bg: "bg-secondary/10", text: "text-secondary", stripe: "bg-secondary" },
+  emerald: { bg: "bg-emerald/10", text: "text-emerald", stripe: "bg-emerald" },
+  amber: { bg: "bg-amber/10", text: "text-amber", stripe: "bg-amber" },
+};
 
 const CertificationsSection = () => {
   return (
@@ -18,33 +25,42 @@ const CertificationsSection = () => {
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.6 }}
       >
-        <span className="pill-tag-accent mb-4 inline-block">Certifications</span>
-        <h2 className="text-4xl md:text-5xl font-heading font-bold mb-16">
-          Continuous Learning
+        <span className="pill-tag-secondary mb-4 inline-block">Certifications</span>
+        <h2 className="text-4xl md:text-5xl font-heading font-bold mb-4">
+          Continuous <span className="gradient-text">Learning</span>
         </h2>
+        <p className="text-muted-foreground text-lg mb-16 max-w-xl">
+          Always leveling up through courses and certifications.
+        </p>
       </motion.div>
 
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        {certifications.map((cert, i) => (
-          <motion.div
-            key={cert.title}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.4, delay: i * 0.08 }}
-            className="bento-card flex items-start gap-4"
-          >
-            <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
-              <Award className="w-5 h-5 text-primary" />
-            </div>
-            <div>
-              <h3 className="font-heading font-semibold text-sm leading-snug mb-1">
-                {cert.title}
-              </h3>
-              <span className="text-xs text-muted-foreground">{cert.provider}</span>
-            </div>
-          </motion.div>
-        ))}
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        {certifications.map((cert, i) => {
+          const colors = colorStyles[cert.color];
+          return (
+            <motion.div
+              key={cert.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.4, delay: i * 0.08 }}
+              className="bento-card relative overflow-hidden flex items-start gap-4"
+            >
+              <div className={`absolute top-0 left-0 right-0 h-0.5 ${colors.stripe}`} />
+              <div className={`w-10 h-10 rounded-xl ${colors.bg} flex items-center justify-center shrink-0`}>
+                <Award className={`w-5 h-5 ${colors.text}`} />
+              </div>
+              <div>
+                <h3 className="font-heading font-semibold text-sm leading-snug mb-1.5">
+                  {cert.title}
+                </h3>
+                <span className={`inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium ${colors.bg} ${colors.text}`}>
+                  {cert.provider}
+                </span>
+              </div>
+            </motion.div>
+          );
+        })}
       </div>
     </section>
   );
