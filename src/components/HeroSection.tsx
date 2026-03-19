@@ -4,8 +4,19 @@ import { ArrowDown, FileDown, Github, Linkedin, Mail } from "lucide-react";
 const HeroSection = () => {
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
-      {/* Grid background */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,hsl(var(--border)/0.3)_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--border)/0.3)_1px,transparent_1px)] bg-[size:4rem_4rem]" />
+      {/* Refined and Visible Grid Background */}
+      <div 
+        className="absolute inset-0 pointer-events-none z-0"
+        style={{
+          backgroundImage: `
+            linear-gradient(to right, hsl(var(--primary) / 0.2) 1px, transparent 1px),
+            linear-gradient(to bottom, hsl(var(--primary) / 0.2) 1px, transparent 1px)
+          `,
+          backgroundSize: "4rem 4rem",
+          maskImage: "radial-gradient(ellipse 80% 80% at 50% 50%, #000 20%, transparent 100%)",
+          WebkitMaskImage: "radial-gradient(ellipse 80% 80% at 50% 50%, #000 20%, transparent 100%)"
+        }}
+      />
       
       {/* Colorful floating orbs */}
       <div className="absolute top-20 right-20 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-float" />
@@ -19,7 +30,7 @@ const HeroSection = () => {
           transition={{ duration: 0.8 }}
         >
           <span className="pill-tag-accent mb-6 inline-block">
-            ✦ Data Science & Full-Stack Development
+            ✦ Welcome to My Data Odyssey ✦
           </span>
         </motion.div>
 
@@ -39,11 +50,10 @@ const HeroSection = () => {
           transition={{ duration: 0.8, delay: 0.3 }}
           className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed"
         >
-          I transform raw data into actionable intelligence and build scalable 
-          full-stack systems. Passionate about{" "}
-          <span className="text-secondary font-medium">Generative AI</span>,{" "}
-          <span className="text-primary font-medium">RAG pipelines</span>, and 
-          enterprise-grade solutions.
+          Bridging the gap between raw data and human experience. Turning 
+  <span className="text-secondary font-medium"> complex datasets</span> into 
+  <span className="text-primary font-medium"> intelligent agents</span> and 
+  production-ready solutions.
         </motion.p>
 
         <motion.div
@@ -76,8 +86,8 @@ const HeroSection = () => {
           className="flex items-center justify-center gap-5"
         >
           {[
-            { icon: Github, href: "https://github.com/", label: "GitHub" },
-            { icon: Linkedin, href: "https://linkedin.com/", label: "LinkedIn" },
+            { icon: Github, href: "https://github.com/Aditya7005446231", label: "GitHub" },
+            { icon: Linkedin, href: "https://www.linkedin.com/in/aditya-rai-31a250289//", label: "LinkedIn" },
             { icon: Mail, href: "mailto:your@email.com", label: "Email" },
           ].map(({ icon: Icon, href, label }) => (
             <a key={label} href={href} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-muted flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-primary/10 hover:text-primary transition-all duration-200">

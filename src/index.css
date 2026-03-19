@@ -6,14 +6,14 @@
 
 @layer base {
   :root {
-    --background: 220 20% 97%;
-    --foreground: 222 47% 11%;
+    --background: 222 47% 7%;
+    --foreground: 210 40% 98%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222 47% 11%;
+    --card: 222 47% 9%;
+    --card-foreground: 210 40% 98%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222 47% 11%;
+    --popover: 222 47% 9%;
+    --popover-foreground: 210 40% 98%;
 
     --primary: 199 89% 48%;
     --primary-foreground: 0 0% 100%;
@@ -21,17 +21,17 @@
     --secondary: 263 70% 66%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 220 14% 93%;
-    --muted-foreground: 215 16% 42%;
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20.2% 65.1%;
 
-    --accent: 199 89% 48%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 217 33% 17%;
+    --accent-foreground: 210 40% 98%;
 
-    --destructive: 0 84% 60%;
+    --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 220 13% 88%;
-    --input: 220 13% 88%;
+    --border: 217 33% 17%;
+    --input: 217 33% 17%;
     --ring: 199 89% 48%;
 
     --radius: 0.75rem;
@@ -62,6 +62,12 @@
 
   body {
     @apply bg-background text-foreground font-body antialiased;
+    background-color: hsl(var(--background));
+    background-image:
+      radial-gradient(hsl(var(--foreground) / 0.08) 1px, transparent 1px),
+      radial-gradient(hsl(var(--primary) / 0.06) 1px, transparent 1px);
+    background-size: 24px 24px, 24px 24px;
+    background-position: 0 0, 12px 12px;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -95,7 +101,7 @@
   }
 
   .section-container {
-    @apply max-w-6xl mx-auto px-6 py-24;
+    @apply max-w-6xl mx-auto px-6 py-14 md:py-16;
   }
 
   .bento-card {
@@ -141,13 +147,16 @@
   }
 
   .terminal-window {
-    @apply bg-foreground rounded-2xl overflow-hidden shadow-2xl;
+    @apply rounded-2xl overflow-hidden shadow-2xl;
+    background-color: #0d1117; /* Always dark like a real terminal */
+    border: 1px solid hsl(var(--border) / 0.5);
     font-family: 'JetBrains Mono', monospace;
   }
 
   .terminal-header {
     @apply flex items-center gap-2 px-4 py-3 border-b;
     border-color: hsl(0 0% 100% / 0.1);
+    background-color: #161b22;
   }
 
   .terminal-dot {

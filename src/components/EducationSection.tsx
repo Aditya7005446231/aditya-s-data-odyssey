@@ -6,7 +6,7 @@ const education = [
     school: "Lovely Professional University",
     degree: "B.Tech CSE",
     detail: "6th Semester • CGPA 7.6",
-    period: "2022 – Present",
+    period: "2023 – Present",
     description: "Specializing in Data Science, AI/ML, and Full-Stack Development. Active participant in hackathons and coding competitions.",
     icon: GraduationCap,
     color: "primary" as const,
@@ -15,7 +15,7 @@ const education = [
     school: "Kendriya Vidyalaya",
     degree: "12th Standard — Science",
     detail: "81%",
-    period: "2022",
+    period: "2023",
     description: "Strong foundation in Physics, Chemistry, and Mathematics.",
     icon: School,
     color: "secondary" as const,
@@ -24,7 +24,7 @@ const education = [
     school: "Abotani Vidya Niketan",
     degree: "10th Standard",
     detail: "84%",
-    period: "2020",
+    period: "2021",
     description: "Built academic discipline and curiosity in a nurturing environment in Arunachal Pradesh.",
     icon: BookOpen,
     color: "emerald" as const,
@@ -46,9 +46,8 @@ const EducationSection = () => {
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.6 }}
       >
-        <span className="pill-tag-accent mb-4 inline-block">Education</span>
         <h2 className="text-4xl md:text-5xl font-heading font-bold mb-4">
-          Academic <span className="gradient-text">Journey</span>
+          <span className="gradient-text">Education</span>
         </h2>
         <p className="text-muted-foreground text-lg mb-16 max-w-xl">
           From the hills of Arunachal Pradesh to a leading tech university.

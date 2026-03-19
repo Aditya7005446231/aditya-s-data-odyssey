@@ -4,19 +4,16 @@ import { ExternalLink, Github, LayoutDashboard, Brain } from "lucide-react";
 const projects = [
   {
     title: "PrompTool",
-    subtitle: "Full-Stack Project Management Application",
+    subtitle: "Project Management Platform",
     icon: LayoutDashboard,
     description:
-      "A modern project management tool built with React and Express.js, designed to help teams organize projects, manage tasks, and collaborate efficiently.",
+      "A team-first workspace for planning, tracking, and shipping projects faster.",
     features: [
-      "Dashboard with real-time statistics & insights",
-      "Kanban-style board for visual task management",
-      "Team collaboration & member assignments",
-      "Secure JWT-based authentication",
-      "Customizable workspace settings",
+      "Real-time dashboard insights",
+      "Kanban task management",
+      "JWT authentication and roles",
     ],
-    frontend: ["React 19", "Vite", "Tailwind CSS", "CoreUI", "Lucide React"],
-    backend: ["Node.js", "Express.js", "MongoDB", "JWT", "CORS"],
+    techStack: ["React 19", "Vite", "Tailwind CSS", "Node.js", "Express", "MongoDB", "JWT"],
     accent: "primary" as const,
   },
   {
@@ -24,17 +21,29 @@ const projects = [
     subtitle: "Evidence-First RAG System",
     icon: Brain,
     description:
-      "A Retrieval-Augmented Generation system that transforms free-text patient feedback into operational insights for hospital leadership using LangChain + Gemini + ChromaDB.",
+      "RAG pipeline that turns patient feedback into clear operational insights with cited evidence.",
     features: [
-      "Persistent vector indexing from patient reviews",
-      "Semantic retrieval with evidence citation",
-      "Lightweight issue taxonomy (category & severity)",
-      "Operational snapshot of top complaint themes",
-      "Gradio UI with Q&A, Ops Snapshot & Index Management tabs",
+      "Persistent vector indexing",
+      "Evidence-backed semantic retrieval",
+      "Ops snapshot for complaint trends",
     ],
-    frontend: ["Gradio", "Python 3.10+"],
-    backend: ["LangChain", "Gemini 2.0 Flash", "ChromaDB", "Gemini Embeddings"],
+    techStack: ["Python", "Gradio", "LangChain", "Gemini", "ChromaDB", "Embeddings"],
     accent: "secondary" as const,
+  },
+  {
+    title: "Netflix Exploratory Analysis",
+    subtitle: "Data Science Project",
+    icon: LayoutDashboard,
+    description:
+      "Concise EDA on Netflix content to uncover genre, release-year, and region-wise trends.",
+    features: [
+      "Genre and release trend analysis",
+      "Content distribution insights",
+      "Clean visual storytelling",
+    ],
+    techStack: ["Python", "Pandas", "Matplotlib"],
+    accent: "emerald" as const,
+
   },
 ];
 
@@ -47,13 +56,12 @@ const ProjectsSection = () => {
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.6 }}
       >
-        <span className="pill-tag-accent mb-4 inline-block">Projects</span>
-        <h2 className="text-4xl md:text-5xl font-heading font-bold mb-16">
+        <h2 className="text-4xl md:text-5xl font-heading font-bold mb-10">
           Featured Work
         </h2>
       </motion.div>
 
-      <div className="space-y-8">
+      <div className="space-y-6">
         {projects.map((project, i) => (
           <motion.div
             key={project.title}
@@ -61,34 +69,50 @@ const ProjectsSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6, delay: i * 0.15 }}
-            className="card-elevated p-8 md:p-10 group"
+            className="card-elevated p-6 md:p-7 group"
           >
-            <div className="flex items-start gap-4 mb-6">
-              <div className={`w-12 h-12 rounded-2xl flex items-center justify-center shrink-0 ${project.accent === "primary" ? "bg-primary/10 text-primary" : "bg-secondary/10 text-secondary"}`}>
-                <project.icon className="w-6 h-6" />
+            <div className="flex items-start gap-3 mb-4">
+              <div
+                className={`w-11 h-11 rounded-2xl flex items-center justify-center shrink-0 ${
+                  project.accent === "primary"
+                    ? "bg-primary/10 text-primary"
+                    : project.accent === "secondary"
+                      ? "bg-secondary/10 text-secondary"
+                      : "bg-emerald/10 text-emerald"
+                }`}
+              >
+                <project.icon className="w-5 h-5" />
               </div>
               <div>
-                <h3 className="text-2xl md:text-3xl font-heading font-bold">
+                <h3 className="text-xl md:text-2xl font-heading font-bold">
                   {project.title}
                 </h3>
-                <p className="text-muted-foreground font-medium">{project.subtitle}</p>
+                <p className="text-muted-foreground text-sm font-medium">{project.subtitle}</p>
               </div>
             </div>
 
-            <p className="text-muted-foreground mb-8 max-w-3xl leading-relaxed">
+            <p className="text-muted-foreground mb-5 max-w-3xl leading-relaxed text-sm md:text-base">
               {project.description}
             </p>
 
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="grid md:grid-cols-2 gap-5">
               {/* Features */}
               <div>
-                <h4 className="font-heading font-semibold mb-4 text-sm uppercase tracking-wider text-muted-foreground">
+                <h4 className="font-heading font-semibold mb-3 text-xs uppercase tracking-wider text-muted-foreground">
                   Key Features
                 </h4>
-                <ul className="space-y-2">
+                <ul className="space-y-1.5">
                   {project.features.map((f) => (
                     <li key={f} className="flex items-start gap-2 text-sm">
-                      <span className={`w-1.5 h-1.5 rounded-full mt-2 shrink-0 ${project.accent === "primary" ? "bg-primary" : "bg-secondary"}`} />
+                      <span
+                        className={`w-1.5 h-1.5 rounded-full mt-2 shrink-0 ${
+                          project.accent === "primary"
+                            ? "bg-primary"
+                            : project.accent === "secondary"
+                              ? "bg-secondary"
+                              : "bg-emerald"
+                        }`}
+                      />
                       {f}
                     </li>
                   ))}
@@ -97,31 +121,20 @@ const ProjectsSection = () => {
 
               {/* Tech Stack */}
               <div>
-                <h4 className="font-heading font-semibold mb-4 text-sm uppercase tracking-wider text-muted-foreground">
+                <h4 className="font-heading font-semibold mb-3 text-xs uppercase tracking-wider text-muted-foreground">
                   Tech Stack
                 </h4>
-                <div className="space-y-3">
-                  <div>
-                    <span className="text-xs font-medium text-muted-foreground uppercase tracking-wider">Frontend</span>
-                    <div className="flex flex-wrap gap-2 mt-1">
-                      {project.frontend.map((t) => (
-                        <span key={t} className="pill-tag text-xs">{t}</span>
-                      ))}
-                    </div>
-                  </div>
-                  <div>
-                    <span className="text-xs font-medium text-muted-foreground uppercase tracking-wider">Backend</span>
-                    <div className="flex flex-wrap gap-2 mt-1">
-                      {project.backend.map((t) => (
-                        <span key={t} className="pill-tag-accent text-xs">{t}</span>
-                      ))}
-                    </div>
-                  </div>
+                <div className="flex flex-wrap gap-2">
+                  {project.techStack.map((t) => (
+                    <span key={t} className="pill-tag text-xs">
+                      {t}
+                    </span>
+                  ))}
                 </div>
               </div>
             </div>
 
-            <div className="flex gap-3 mt-8 pt-6 border-t border-border/50">
+            <div className="flex gap-3 mt-6 pt-4 border-t border-border/50">
               <a href="#" className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
                 <Github className="w-4 h-4" /> View Code
               </a>

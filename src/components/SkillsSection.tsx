@@ -48,9 +48,8 @@ const SkillsSection = () => {
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.6 }}
       >
-        <span className="pill-tag-accent mb-4 inline-block">Skills</span>
         <h2 className="text-4xl md:text-5xl font-heading font-bold mb-4">
-          My <span className="gradient-text-cool">Toolbox</span>
+          <span className="gradient-text-cool">Skills</span>
         </h2>
         <p className="text-muted-foreground text-lg mb-16 max-w-xl">
           Technologies and skills I use to bring ideas to life.

@@ -3,8 +3,8 @@ import { motion } from "framer-motion";
 
 const commands = [
   { cmd: "aditya.location", output: '"Arunachal Pradesh, India 🏔️"' },
-  { cmd: "aditya.currentRole", output: '"B.Tech CSE Student @ LPU"' },
-  { cmd: "aditya.skills.top(5)", output: '["Python", "React", "FastAPI", "LangChain", "Docker"]' },
+  { cmd: "aditya.currentRole", output: '"Pre Final Year CSE Student @LPU"' },
+  { cmd: "aditya.todayQuote", output: 'Code is poetry, just written in a different syntax.' },
   { cmd: "aditya.interests", output: '["Data Science", "Generative AI", "RAG Systems", "Full-Stack"]' },
   { cmd: "aditya.isAvailableForHire()", output: "true ✅" },
 ];
@@ -59,7 +59,8 @@ const InteractiveTerminal = () => {
       onViewportEnter={startAnimation}
       className="section-container"
     >
-      <div className="max-w-2xl mx-auto">
+      {/* Width control: increase max-w-2xl to max-w-3xl or max-w-4xl */}
+      <div className="max-w-4xl mx-auto">
         <div className="terminal-window">
           {/* Terminal header */}
           <div className="terminal-header">
@@ -72,7 +73,8 @@ const InteractiveTerminal = () => {
           </div>
 
           {/* Terminal body */}
-          <div className="p-5 space-y-3 min-h-[280px]">
+          {/* Height control: increase min-h-[280px] to min-h-[380px] md:min-h-[460px] */}
+          <div className="p-5 space-y-3 min-h-[380px]">
             {/* Already completed lines */}
             {commands.slice(0, visibleLines).map((line, i) => (
               <div key={i}>

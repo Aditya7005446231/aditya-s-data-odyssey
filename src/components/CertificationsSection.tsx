@@ -7,7 +7,9 @@ const certifications = [
   { title: "ChatGPT-4 Prompt Engineering: ChatGPT, Generative AI & LLM", provider: "Infosys", color: "emerald" as const },
   { title: "Introduction to IoT", provider: "NPTEL", color: "amber" as const },
   { title: "Advance Data Structure", provider: "LPU", color: "primary" as const },
+  { title: "Bits & Bytes", provider:"Coursera", color: "secondary" as const },
 ];
+
 
 const colorStyles = {
   primary: { bg: "bg-primary/10", text: "text-primary", stripe: "bg-primary" },
@@ -25,11 +27,12 @@ const CertificationsSection = () => {
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.6 }}
       >
-        <span className="pill-tag-secondary mb-4 inline-block">Certifications</span>
-        <h2 className="text-4xl md:text-5xl font-heading font-bold mb-4">
-          Continuous <span className="gradient-text">Learning</span>
+        <h2 className="text-4xl md:text-5xl font-heading font-bold tracking-tight mb-4">
+          <span className="bg-clip-text text-transparent bg-gradient-to-r from-[hsl(var(--primary))] via-[hsl(var(--secondary))] to-[hsl(var(--emerald))]">
+            Certifications
+          </span>
         </h2>
-        <p className="text-muted-foreground text-lg mb-16 max-w-xl">
+        <p className="text-muted-foreground text-lg mb-16 max-w-xl leading-relaxed">
           Always leveling up through courses and certifications.
         </p>
       </motion.div>
