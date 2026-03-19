@@ -1,73 +1,53 @@
-# Welcome to your Lovable project
+# Aditya's Data Odyssey - Personal Portfolio
 
-## Project info
+Welcome to the source code of my personal portfolio and technical showcase! This project is a completely bespoke, interactive web experience designed to highlight my work in Data Science, Full-Stack Development, and Generative AI.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+![Portfolio Preview](./public/meme.jpg) <!-- Update this path if you add a real screenshot in the future -->
 
-## How can I edit this code?
+## 🚀 Features
+- **Interactive Hacker Terminal:** A custom-built, React-powered animated terminal that typing out my background facts on load.
+- **Custom Theming:** Built natively with a dark-mode-first slate palette utilizing Tailwind CSS for beautiful glassmorphism and gradient layers.
+- **Data & AI Focused:** Content organized specifically around my work in autonomous agents, RAG systems, and dataset exploratory analysis.
+- **Scroll Animations:** Fluent entrance animations bound to scroll state using Framer Motion.
+- **Bento Grid Layouts:** Clean, compartmentalized data display utilizing modern "Bento Box" CSS grid designs for Contact and Project sections.
 
-There are several ways of editing your application.
+## 🛠 Tech Stack
+- [React 19](https://react.dev/) + [TypeScript](https://www.typescriptlang.org/)
+- [Vite](https://vitejs.dev/) - Lightning fast build tool.
+- [Tailwind CSS](https://tailwindcss.com/) - Utility-first styling.
+- [Framer Motion](https://www.framer.com/motion/) - React animation library.
+- [Lucide React](https://lucide.dev/) - Beautifully consistent icon set.
+- [Radix UI](https://www.radix-ui.com/) / shadcn (Primitives)
 
-**Use Lovable**
+## 💻 Local Development
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/Aditya7005446231/aditya-s-data-odyssey.git
+   cd aditya-s-data-odyssey
+   ```
 
-Changes made via Lovable will be committed automatically to this repo.
+2. **Install dependencies:**
+   This project uses `bun` or `npm`.
+   ```bash
+   npm install
+   ```
 
-**Use your preferred IDE**
+3. **Start the development server:**
+   ```bash
+   npm run dev
+   ```
+   Open your browser to the local address provided by Vite (usually `http://localhost:5173` or `8080`).
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## 📁 Key File Structure
+- `/src/components/*` - All modular sections (`HeroSection`, `AboutSection`, `ProjectsSection`, etc).
+- `/src/index.css` - Global theme variables and custom Tailwind base configurations.
+- `/public/` - Static assets including my resume, profile image, and fallback graphics.
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## 🤝 Let's Connect
+Looking for collaboration on an AI or Data Science project? 
+- LinkedIn: [aditya-rai-31a250289](https://www.linkedin.com/in/aditya-rai-31a250289/)
+- Email: your@email.com (Update in `ContactSection.tsx`)
 
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+---
+*Built with ❤️ and plenty of coffee.*
