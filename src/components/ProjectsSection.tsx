@@ -15,6 +15,8 @@ const projects = [
     ],
     techStack: ["React 19", "Vite", "Tailwind CSS", "Node.js", "Express", "MongoDB", "JWT"],
     accent: "primary" as const,
+    githubUrl: "https://github.com/Aditya7005446231/PrompTool",
+    liveUrl: "/not-deployed",
   },
   {
     title: "Patient Experience Analytics (RAG)",
@@ -29,6 +31,8 @@ const projects = [
     ],
     techStack: ["Python", "Gradio", "LangChain", "Gemini", "ChromaDB", "Embeddings"],
     accent: "secondary" as const,
+    githubUrl: "https://github.com/Aditya7005446231/patient-experience-rag",
+    liveUrl: "/not-deployed",
   },
   {
     title: "Netflix Exploratory Analysis",
@@ -43,7 +47,8 @@ const projects = [
     ],
     techStack: ["Python", "Pandas", "Matplotlib"],
     accent: "emerald" as const,
-
+    githubUrl: "https://github.com/Aditya7005446231/Netflix-Exploratory-Analysis",
+    liveUrl: "/not-deployed",
   },
 ];
 
@@ -135,12 +140,16 @@ const ProjectsSection = () => {
             </div>
 
             <div className="flex gap-3 mt-6 pt-4 border-t border-border/50">
-              <a href="#" className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
-                <Github className="w-4 h-4" /> View Code
-              </a>
-              <a href="#" className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-primary/80 transition-colors">
-                <ExternalLink className="w-4 h-4" /> Live Demo
-              </a>
+              {project.githubUrl && (
+                <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+                  <Github className="w-4 h-4" /> View Code
+                </a>
+              )}
+              {project.liveUrl && (
+                <a href={project.liveUrl} className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-primary/80 transition-colors">
+                  <ExternalLink className="w-4 h-4" /> Live Demo
+                </a>
+              )}
             </div>
           </motion.div>
         ))}

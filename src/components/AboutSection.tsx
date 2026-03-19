@@ -14,29 +14,32 @@ const AboutSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
-          className="mb-6"
+          className="mb-12 text-center md:text-left"
         >
           <h2 className="text-4xl md:text-5xl font-heading font-bold mb-4">
             <span className="gradient-text">About Me</span>
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-12 gap-8 lg:gap-10 items-start">
+        <div className="grid md:grid-cols-12 gap-8 lg:gap-14 items-center">
         {/* Image Column */}
           <motion.div
-            className="md:col-span-5"
+            className="md:col-span-5 flex justify-center lg:justify-start pl-0 lg:pl-4"
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6, delay: 0.25 }}
           >
-            <div className="bento-card p-3">
-              <img
-                src="/cv photo.jpg"
-                alt="Aditya Raj Rai profile photo"
-                className="w-full h-72 md:h-80 object-contain rounded-xl bg-muted/20"
-                loading="lazy"
-              />
+            <div className="relative group">
+              <div className="absolute -inset-1 bg-gradient-to-r from-primary to-secondary blur-md rounded-full opacity-60 group-hover:opacity-100 transition duration-500"></div>
+              <div className="relative p-2 bg-card rounded-full border border-border/50">
+                <img
+                  src="/cv photo.jpg"
+                  alt="Aditya Raj Rai profile photo"
+                  className="w-56 h-56 md:w-64 md:h-64 object-cover rounded-full bg-muted/20"
+                  loading="lazy"
+                />
+              </div>
             </div>
           </motion.div>
 

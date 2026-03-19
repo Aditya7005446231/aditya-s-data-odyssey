@@ -37,7 +37,7 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <p className="text-xs text-muted-foreground">Email</p>
-                  <p className="font-medium text-sm">your@email.com</p>
+                  <p className="font-medium text-sm">adityarai77053@gmail.com</p>
                 </div>
               </a>
               <a href="tel:+910000000000" className="bento-card flex items-center gap-4 group">
@@ -46,10 +46,10 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <p className="text-xs text-muted-foreground">Phone</p>
-                  <p className="font-medium text-sm">+91 XXXXX XXXXX</p>
+                  <p className="font-medium text-sm">+91 70054 46231</p>
                 </div>
               </a>
-              <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer" className="bento-card flex items-center gap-4 group">
+              <a href="https://www.linkedin.com/in/aditya-rai-31a250289/" target="_blank" rel="noopener noreferrer" className="bento-card flex items-center gap-4 group">
                 <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
                   <Linkedin className="w-5 h-5 text-primary" />
                 </div>
@@ -58,7 +58,7 @@ const ContactSection = () => {
                   <p className="font-medium text-sm">Connect with me</p>
                 </div>
               </a>
-              <a href="https://github.com/" target="_blank" rel="noopener noreferrer" className="bento-card flex items-center gap-4 group">
+              <a href="https://github.com/Aditya7005446231" target="_blank" rel="noopener noreferrer" className="bento-card flex items-center gap-4 group">
                 <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
                   <Github className="w-5 h-5 text-primary" />
                 </div>
@@ -71,7 +71,7 @@ const ContactSection = () => {
 
             <div>
               <a
-                href="/resume.pdf"
+                href="/ADITYA_CV.pdf"
                 download
                 className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-foreground text-background font-heading font-semibold text-lg hover:scale-105 transition-transform duration-200"
               >
