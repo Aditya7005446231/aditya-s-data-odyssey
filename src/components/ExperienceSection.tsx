@@ -5,7 +5,7 @@ const journeyItems = [
   {
     title: "Freelance Social Media Manager",
     org: "Client Projects",
-    period: "2024 - Present",
+    period: "June 2025 - December 2025",
     type: "Experience",
     icon: Briefcase,
     color: "primary" as const,
@@ -17,7 +17,7 @@ const journeyItems = [
   {
     title: "Chief Marketing Officer",
     org: "Leadership Role",
-    period: "2024",
+    period: "2025 - Present",
     type: "Experience",
     icon: Megaphone,
     color: "emerald" as const,
@@ -29,7 +29,7 @@ const journeyItems = [
   {
     title: "SIH University-Level Qualifier",
     org: "Smart India Hackathon",
-    period: "2024",
+    period: "September 2025",
     type: "Achievement",
     icon: Trophy,
     color: "rose" as const,
@@ -41,7 +41,7 @@ const journeyItems = [
   {
     title: "Advance Data Structures Training",
     org: "Intensive Program",
-    period: "2024",
+    period: "June 2025 - July 2025",
     type: "Training",
     icon: Zap,
     color: "amber" as const,
