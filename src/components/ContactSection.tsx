@@ -1,7 +1,43 @@
+import { useRef, FormEvent, useState } from "react";
 import { motion } from "framer-motion";
 import { Mail, Phone, Linkedin, Github, FileDown, Send } from "lucide-react";
+import emailjs from '@emailjs/browser';
 
 const ContactSection = () => {
+  const formRef = useRef<HTMLFormElement>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    if (!formRef.current) return;
+
+    setIsSubmitting(true);
+
+    // ==========================================
+    // EMAILJS CODE GOES HERE
+    // ==========================================
+    
+    emailjs.sendForm(
+      'service_u2t05kd', 
+      'template_1jcwzbt', 
+      formRef.current, 
+      'NE_XeeWqjufTCDErf'
+    )
+    .then((result) => {
+        console.log(result.text);
+        alert("Message sent successfully!");
+        formRef.current?.reset();
+    }, (error) => {
+        console.log(error.text);
+        alert("Oops! Something went wrong. Please try again.");
+    })
+    .finally(() => {
+        setIsSubmitting(false);
+    });
+    
+  };
+
   return (
     <section id="contact" className="section-container">
       <motion.div
@@ -84,14 +120,16 @@ const ContactSection = () => {
           {/* Contact Form */}
           <div className="bento-card relative">
             <h3 className="text-2xl font-heading font-bold mb-6">Send a Message</h3>
-            <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
+            <form ref={formRef} className="space-y-4" onSubmit={handleSubmit}>
               <div className="space-y-2">
                 <label htmlFor="name" className="text-sm font-medium text-muted-foreground">Your Name</label>
                 <input 
                   type="text" 
                   id="name" 
+                  name="user_name" // <--- Important for EmailJS template
                   className="w-full px-4 py-3 rounded-xl bg-background/50 border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all placeholder:text-muted-foreground/50 text-sm" 
                   placeholder="John Doe" 
+                  required
                 />
               </div>
               <div className="space-y-2">
@@ -99,25 +137,30 @@ const ContactSection = () => {
                 <input 
                   type="email" 
                   id="email" 
+                  name="user_email" // <--- Important for EmailJS template
                   className="w-full px-4 py-3 rounded-xl bg-background/50 border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all placeholder:text-muted-foreground/50 text-sm" 
                   placeholder="john@example.com" 
+                  required
                 />
               </div>
               <div className="space-y-2">
                 <label htmlFor="message" className="text-sm font-medium text-muted-foreground">Message</label>
                 <textarea 
                   id="message" 
+                  name="message" // <--- Important for EmailJS template
                   rows={4}
                   className="w-full px-4 py-3 rounded-xl bg-background/50 border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all resize-none placeholder:text-muted-foreground/50 text-sm" 
                   placeholder="How can I help you?" 
+                  required
                 ></textarea>
               </div>
               <button 
                 type="submit" 
-                className="w-full flex items-center justify-center gap-2 px-6 py-3.5 mt-2 rounded-xl bg-primary text-primary-foreground font-medium hover:bg-primary/90 transition-all hover:scale-[1.02] shadow-lg shadow-primary/20"
+                disabled={isSubmitting}
+                className="w-full flex items-center justify-center gap-2 px-6 py-3.5 mt-2 rounded-xl bg-primary text-primary-foreground font-medium hover:bg-primary/90 transition-all hover:scale-[1.02] shadow-lg shadow-primary/20 disabled:opacity-70 disabled:pointer-events-none"
               >
                 <Send className="w-4 h-4" />
-                Send Message
+                {isSubmitting ? "Sending..." : "Send Message"}
               </button>
             </form>
           </div>
