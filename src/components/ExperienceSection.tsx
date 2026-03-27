@@ -16,7 +16,7 @@ const journeyItems = [
   },
   {
     title: "Chief Marketing Officer",
-    org: "Leadership Role",
+    org: "SPARK",
     period: "2025 - Present",
     type: "Experience",
     icon: Megaphone,
@@ -28,7 +28,7 @@ const journeyItems = [
   },
   {
     title: "SIH University-Level Qualifier",
-    org: "Smart India Hackathon",
+    org: "Hackathon",
     period: "September 2025",
     type: "Achievement",
     icon: Trophy,

@@ -50,7 +50,7 @@ const EducationSection = () => {
           <span className="gradient-text">Education</span>
         </h2>
         <p className="text-muted-foreground text-lg mb-16 max-w-xl">
-          From the hills of Arunachal Pradesh to a leading tech university.
+          A snapshot of my academic journey.
         </p>
       </motion.div>
 
